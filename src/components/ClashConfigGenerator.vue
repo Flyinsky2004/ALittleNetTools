@@ -1,6 +1,44 @@
+<script setup>
+import useClipboard from 'vue-clipboard3'
+
+const props = defineProps(['appId'])
+const emits = defineEmits(['update:appId'])
+const goBack = () => {
+  emits('update:appId', 0)
+}
+const {toClipboard} = useClipboard()
+
+const copy = async (text) => {
+  try {
+    await toClipboard(text)
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+</script>
 <template>
   <div class="basic-container max-w-4xl mx-auto p-6 rounded-lg shadow-xl">
-    <h2 class="text-2xl font-bold mb-6 text-center">YAML Generator</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center">小猫配置生成器(WS)</h2>
+    <div class="w-full flex flex-wrap gap-4">
+      <button @click="goBack" type="submit"
+              class="basic-button text-gray-200 w-20 bg-violet-600 hover:bg-violet-700 focus:ring-violet-500">
+        返回
+      </button>
+      <button @click="resetForm" type="submit"
+              class="basic-button text-gray-200 w-20 bg-zinc-600 hover:bg-zinc-700 focus:ring-zinc-500">
+        重置
+      </button>
+      <button @click="fillSampleData" type="submit"
+              class="basic-button text-gray-200 w-20 bg-sky-600 hover:bg-sky-700 focus:ring-sky-500">
+        示例
+      </button>
+      <button @click="copy(yamlOutput)" type="submit"
+              class="basic-button text-gray-200 w-auto bg-fuchsia-600 hover:bg-fuchsia-700 focus:ring-fuchsia-500">
+        复制配置
+      </button>
+    </div>
+
     <div class="grid grid-cols-2">
       <form @submit.prevent="generateYAML" class="space-y-4">
         <div>
@@ -126,6 +164,39 @@ export default {
       }
 
       this.yamlOutput = yaml;
+    }, resetForm() {
+      this.formData = {
+        ipAddresses: '',
+        type: '',
+        port: '',
+        uuid: '',
+        udp: 'true',
+        tls: 'true',
+        clientFingerprint: '',
+        skipCertVerify: 'false',
+        servername: '',
+        network: '',
+        wsOptsPath: '',
+        wsOptsHeadersHost: ''
+      };
+      this.yamlOutput = '';
+    },
+    fillSampleData() {
+      this.formData = {
+        ipAddresses: '123.45.67.89\nexample.com\n1.1.1.1\n',
+        type: 'vmess',
+        port: '443',
+        uuid: '1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p',
+        udp: 'true',
+        tls: 'true',
+        clientFingerprint: 'safari',
+        skipCertVerify: 'false',
+        servername: 'baidu.com',
+        network: 'ws',
+        wsOptsPath: '/settings?ed=2048',
+        wsOptsHeadersHost: 'baidu.com'
+      };
+      this.generateYAML(); // 假设你有一个生成YAML的方法
     }
   }
 }

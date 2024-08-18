@@ -1,28 +1,32 @@
-# overwallnettools
+# ALittleNetTools
 
-This template should help get you started developing with Vue 3 in Vite.
+这是一个供自己使用的纯前端依托js实现的工具集，不提供任何服务或教程。
 
-## Recommended IDE Setup
+仅供个人学习交流使用 不提供任何服务和教程 请遵守你所在地区的法律!!!
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 目前已实现功能
 
-## Customize configuration
+浅色/暗色主题切换✅
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+小猫配置生成✅
 
-## Project Setup
+## 技术栈
+
+Vite+Vue3
+
+## 安装依赖
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 编译热更新开发环境
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### 编译静态文件
 
 ```sh
 npm run build
