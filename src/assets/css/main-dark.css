@@ -1,14 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.basic-header{
+    @apply bg-blue-950;
+}
 .basic-input{
     @apply w-full px-3 py-2 text-white bg-black border border-gray-800 rounded-lg focus:outline-none focus:border-blue-500;
 }
 .basic-container{
-    @apply bg-black text-white shadow-white;
+    @apply bg-neutral-900 text-white shadow-blue-500;
 }
 .edge-container{
-    @apply  bg-gray-950 text-white;
+    @apply  bg-black text-white;
 }
 .base-color-switch{
     @apply text-white;
