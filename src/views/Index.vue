@@ -1,8 +1,9 @@
 <script setup>
 import {useThemeStore} from "@/stores/theme.js";
-import ClashConfigGenerator from '@/components/ClashConfigGenerator.vue'
-import MenuC from '@/components/MenuC.vue'
+import ClashConfigGenerator from '@/components/apps/ClashConfigGenerator.vue'
+import MenuC from '@/components/common/MenuC.vue'
 import {reactive} from "vue";
+import NodeLinkGenerator from "@/components/apps/NodeLinkGenerator.vue";
 
 const themeStore = useThemeStore()
 const options = reactive({
@@ -57,6 +58,7 @@ const switchTheme = () => {
     <div class="mt-20 flex-grow">
       <MenuC v-if="options.appId === 0" v-model:app-id="options.appId"/>
       <ClashConfigGenerator v-else-if="options.appId === 1" v-model:app-id="options.appId"/>
+      <NodeLinkGenerator v-else-if="options.appId === 2" v-model:app-id="options.appId"/>
     </div>
     <footer class="basic-header bg-gray-800 text-white py-4">
       <div class="mx-auto text-center">

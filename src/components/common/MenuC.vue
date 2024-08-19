@@ -1,5 +1,5 @@
 <script setup>
-import AppIcon from "@/components/AppIcon.vue";
+import AppIcon from "@/components/common/AppIcon.vue";
 import {reactive} from "vue";
 import {message} from 'ant-design-vue';
 import {defineProps, defineEmits} from 'vue'
@@ -23,10 +23,14 @@ const apps = reactive([
     iconUrl: 'https://imgs.flyinsky.us.kg/file/94a3bdf18279c07521ea0.png',
     name: '小猫配置生成器(WS)'
   }, {
+    id: 2,
+    iconUrl: 'https://imgs.flyinsky.us.kg/file/8140aaf3b067c380ab3ba.png',
+    name: '链接批量生成器(IP列)'
+  }, {
     id: -1,
     iconUrl: 'https://imgs.flyinsky.us.kg/file/27b64414afc264096f11c.png',
     name: '敬请期待...'
-  }
+  },
 ])
 </script>
 <template>
