@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    html {
+        @apply transition-colors duration-300 ease-in-out;
+    }
+
+    body {
+        @apply transition-colors duration-300 ease-in-out;
+    }
+
+    div {
+        @apply transition-colors duration-300 ease-in-out;
+    }
+}
+
+@layer components {
+    .theme-transition {
+        @apply transition-colors duration-300 ease-in-out;
+    }
+}
+
+body {
+    @apply bg-gray-50 dark:bg-neutral-900;
+}
+
+.appIcon {
+    @apply bg-amber-100 text-gray-500 dark:bg-gray-800 dark:text-gray-300;
+}
+
+.basic-header {
+    @apply bg-amber-600 dark:bg-blue-950;
+}
+
+.basic-input {
+    @apply text-gray-700 focus:border-blue-500 dark:text-white dark:border-gray-800 dark:focus:border-blue-500 dark:bg-black w-full px-3 py-2  border rounded-lg focus:outline-none;
+}
+
+.basic-container {
+    @apply dark:bg-neutral-900 dark:text-white dark:shadow-blue-500;
+}
+
+.edge-container {
+    @apply dark:bg-black dark:text-white;
+}
+
+.base-color-switch {
+    @apply text-black dark:text-white;
+}
+
+.base-color-switch-reverse {
+    @apply text-white dark:text-black;
+}

@@ -15,7 +15,7 @@ const router = createRouter({
 })
 router.beforeEach((to, from, next) => {
   const themeStore = useThemeStore()
-  themeStore.loadThemeCSS(themeStore.currentTheme)
+  themeStore.initTheme()
   next()
 })
 export default router

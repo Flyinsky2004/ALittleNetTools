@@ -22,9 +22,7 @@ const showMessage = (type, text) => {
   }, 3000) // 3秒后自动隐藏
 }
 const switchTheme = () => {
-  const theme = themeStore.currentTheme === 'light' ? 'dark' : 'light'
-  themeStore.setTheme(theme)
-  themeStore.loadThemeCSS(theme)
+  themeStore.toggleTheme()
 }
 </script>
 

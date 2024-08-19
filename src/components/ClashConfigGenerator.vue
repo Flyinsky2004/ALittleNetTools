@@ -1,6 +1,8 @@
 <script setup>
 import useClipboard from 'vue-clipboard3'
+import {message} from "ant-design-vue";
 
+const [messageApi, contextHolder] = message.useMessage();
 const props = defineProps(['appId'])
 const emits = defineEmits(['update:appId'])
 const goBack = () => {
@@ -10,7 +12,7 @@ const {toClipboard} = useClipboard()
 
 const copy = async (text) => {
   try {
-    await toClipboard(text)
+    await toClipboard(text).then(messageApi.success('内容已复制至剪贴板'))
   } catch (e) {
     console.error(e)
   }
@@ -18,6 +20,7 @@ const copy = async (text) => {
 
 </script>
 <template>
+  <contextHolder/>
   <div class="basic-container max-w-4xl mx-auto p-6 rounded-lg shadow-xl">
     <h2 class="text-2xl font-bold mb-6 text-center">小猫配置生成器(WS)</h2>
     <div class="w-full flex flex-wrap gap-4">
@@ -42,15 +45,15 @@ const copy = async (text) => {
     <div class="grid grid-cols-2">
       <form @submit.prevent="generateYAML" class="space-y-4">
         <div>
-          <label for="ipAddresses" class="block text-sm font-medium  mb-1">IP Addresses (one per line):</label>
+          <label for="ipAddresses" class="block text-sm font-medium  mb-1">IP列表(每行一个)</label>
           <textarea id="ipAddresses" v-model="formData.ipAddresses" class="basic-input" rows="5" required></textarea>
         </div>
         <div>
-          <label for="type" class="block text-sm font-medium  mb-1">Type:</label>
+          <label for="type" class="block text-sm font-medium  mb-1">协议类型:</label>
           <input id="type" v-model="formData.type" class="basic-input" required>
         </div>
         <div>
-          <label for="port" class="block text-sm font-medium  mb-1">Port:</label>
+          <label for="port" class="block text-sm font-medium  mb-1">端口:</label>
           <input id="port" v-model="formData.port" class="basic-input" required>
         </div>
         <div>
@@ -74,30 +77,30 @@ const copy = async (text) => {
           </div>
         </div>
         <div>
-          <label for="clientFingerprint" class="block text-sm font-medium  mb-1">Client Fingerprint:</label>
+          <label for="clientFingerprint" class="block text-sm font-medium  mb-1">客户端标识:</label>
           <input id="clientFingerprint" v-model="formData.clientFingerprint" class="basic-input" required>
         </div>
         <div>
-          <label for="skipCertVerify" class="block text-sm font-medium  mb-1">Skip Cert Verify:</label>
+          <label for="skipCertVerify" class="block text-sm font-medium  mb-1">跳过证书验证:</label>
           <select id="skipCertVerify" v-model="formData.skipCertVerify" class="basic-input" required>
             <option value="true">True</option>
             <option value="false">False</option>
           </select>
         </div>
         <div>
-          <label for="servername" class="block text-sm font-medium  mb-1">Servername:</label>
+          <label for="servername" class="block text-sm font-medium  mb-1">服务器地址:</label>
           <input id="servername" v-model="formData.servername" class="basic-input" required>
         </div>
         <div>
-          <label for="network" class="block text-sm font-medium  mb-1">Network:</label>
+          <label for="network" class="block text-sm font-medium  mb-1">传输类型:</label>
           <input id="network" v-model="formData.network" class="basic-input" required>
         </div>
         <div>
-          <label for="wsOptsPath" class="block text-sm font-medium  mb-1">WS-Opts Path:</label>
+          <label for="wsOptsPath" class="block text-sm font-medium  mb-1">WS路径:</label>
           <input id="wsOptsPath" v-model="formData.wsOptsPath" class="basic-input" required>
         </div>
         <div>
-          <label for="wsOptsHeadersHost" class="block text-sm font-medium  mb-1">WS-Opts Headers Host:</label>
+          <label for="wsOptsHeadersHost" class="block text-sm font-medium  mb-1">WS服务器地址:</label>
           <input id="wsOptsHeadersHost" v-model="formData.wsOptsHeadersHost" class="basic-input" required>
         </div>
         <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
