@@ -12,6 +12,7 @@
     "@heroicons/vue": "^2.1.5",
     "ant-design-vue": "^4.2.3",
     "axios": "^1.7.4",
+    "js-yaml": "^4.1.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
     "vue-clipboard3": "^2.0.0",

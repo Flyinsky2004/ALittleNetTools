@@ -8,8 +8,6 @@ Cf Pages：https://alittlenettools.pages.dev/
 
 ## 目前已实现功能
 
-⚠️示例站点会判断您的IP地址，中国大陆地区暂时无法访问⚠️
-
 浅色/暗色主题切换✅
 
 小猫配置生成✅

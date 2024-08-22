@@ -27,6 +27,10 @@ const apps = reactive([
     iconUrl: 'https://imgs.flyinsky.us.kg/file/8140aaf3b067c380ab3ba.png',
     name: '链接批量生成器(IP列)'
   }, {
+    id: 3,
+    iconUrl: 'https://imgs.flyinsky.us.kg/file/433b147dfb18dba99d548.png',
+    name: 'YAML To URL'
+  }, {
     id: -1,
     iconUrl: 'https://imgs.flyinsky.us.kg/file/27b64414afc264096f11c.png',
     name: '敬请期待...'

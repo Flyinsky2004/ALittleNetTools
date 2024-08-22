@@ -4,6 +4,7 @@ import ClashConfigGenerator from '@/components/apps/ClashConfigGenerator.vue'
 import MenuC from '@/components/common/MenuC.vue'
 import {reactive} from "vue";
 import NodeLinkGenerator from "@/components/apps/NodeLinkGenerator.vue";
+import YAMLToURLConverter from "@/components/apps/YAMLToURLConverter.vue";
 
 const themeStore = useThemeStore()
 const options = reactive({
@@ -59,6 +60,7 @@ const switchTheme = () => {
       <MenuC v-if="options.appId === 0" v-model:app-id="options.appId"/>
       <ClashConfigGenerator v-else-if="options.appId === 1" v-model:app-id="options.appId"/>
       <NodeLinkGenerator v-else-if="options.appId === 2" v-model:app-id="options.appId"/>
+      <YAMLToURLConverter v-else-if="options.appId === 3" v-model:app-id="options.appId"/>
     </div>
     <footer class="basic-header bg-gray-800 text-white py-4">
       <div class="mx-auto text-center">
